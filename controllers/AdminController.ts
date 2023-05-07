@@ -32,16 +32,25 @@ export const CreateVandor = async (req: Request,res: Response, next: NextFunctio
     })
 
     return res.json(createdVandor)
-    //return res.json({name, address, pincode, foodType, email, password, ownerName, phone})
     
 }
 
 export const GetVandors = async (req: Request,res: Response, next: NextFunction) =>{
-    
+    const vandors = await Vandor.find()
+    if(vandors != null){
+        return res.json(vandors)
+    }
+    return res.json({"message" : "No Vamdor Found"})
 }
+
     
 export const GetVandorsById  = async (req: Request,res: Response, next: NextFunction) =>{
-    
+    const vandorid = req.params.id
+    const vandor = await Vandor.findById(vandorid)
+    if(vandor != null){
+        return res.json(vandor)
+    }
+    return res.json({"message" : "No Vamdor Found"})
 }
     
     
