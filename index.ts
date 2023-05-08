@@ -26,9 +26,9 @@ mongoose
                 );
         })
 
-app.use('/', (req, res) => {
-        return res.json('Hello From food Amit Cart')
-})
+// app.use('/', (req, res) => {
+//         return res.json('Hello From food Amit Cart')
+// })
 
 app.listen(8000, () => {
         console.log(`Listening to port 8000 `);
